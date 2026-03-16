@@ -80,11 +80,7 @@ const publications: Publication[] = [
 ];
 
 const preprints: Preprint[] = [
-  {
-    title: "Betting on Predictions",
-    authors: "Y. Tenzer, E. Tolochinsky, Y. Romano",
-  },
-  {
+{
     title: "Measures of Dependence are Monotonic in One Another",
     authors: "Y. Tenzer, G. Elidan",
   },
