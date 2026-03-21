@@ -23,10 +23,10 @@ export default function Teaching() {
 
       <section className="space-y-4">
         <h2 className="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-2">
-          Past Courses
+          2023/4
         </h2>
         <ul className="space-y-2 text-gray-700 text-sm">
-          {/* Add past courses here */}
+          <li>Convex Optimization <span className="text-gray-400">— Graduate · Department of Mathematics, Bar-Ilan University</span></li>
         </ul>
       </section>
     </div>
