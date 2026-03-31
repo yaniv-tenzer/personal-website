@@ -6,7 +6,7 @@ export default function Home() {
       {/* Profile */}
       <section className="flex flex-col sm:flex-row gap-8 items-start">
         <Image
-          src="/Tenzer_pic.jpg"
+          src="/tenzer_pic1.png"
           alt="Yaniv Tenzer"
           width={192}
           height={192}
