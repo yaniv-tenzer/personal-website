@@ -14,6 +14,7 @@ type Publication = {
 type Preprint = {
   title: string;
   authors: string;
+  year?: number;
 };
 
 const publications: Publication[] = [
@@ -80,9 +81,16 @@ const publications: Publication[] = [
 ];
 
 const preprints: Preprint[] = [
-{
-    title: "Measures of Dependence are Monotonic in One Another",
+  {
+    title:
+      "Valid Best-Model Identification for LLM Evaluation via Low-Rank Factorization",
+    authors: "E. Tolochinsky, Y. Tenzer, Y. Romano",
+    year: 2026,
+  },
+  {
+    title: "On the Monotonicity of the Copula Entropy",
     authors: "Y. Tenzer, G. Elidan",
+    year: 2016,
   },
 ];
 
@@ -127,6 +135,9 @@ export default function Research() {
                 {p.title}
               </h3>
               <p className="text-sm text-gray-600">{p.authors}</p>
+              {p.year && (
+                <p className="text-sm text-gray-500 italic">{p.year}</p>
+              )}
             </div>
           ))}
         </div>
