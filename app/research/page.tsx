@@ -9,32 +9,46 @@ type Publication = {
   authors: string;
   venue: string;
   year: number;
+  url?: string;
+  codeUrl?: string;
 };
 
 type Preprint = {
   title: string;
   authors: string;
   year?: number;
+  url?: string;
 };
 
 const publications: Publication[] = [
+  {
+    title: "Semi-Supervised Hypothesis Testing by Betting on Predictions",
+    authors: "Y. Tenzer, E. Tolochinsky, Y. Romano",
+    venue: "International Conference on Machine Learning (ICML)",
+    year: 2026,
+    url: "https://arxiv.org/abs/2605.28533",
+    codeUrl: "https://github.com/elad-tolo/betting_on_predictions",
+  },
   {
     title: "Crowdsourcing Regression: A Spectral Approach",
     authors: "Y. Tenzer, O. Dror, B. Nadler, E. Bilal, Y. Kluger",
     venue: "Proceedings of Machine Learning Research (PMLR)",
     year: 2022,
+    url: "https://proceedings.mlr.press/v151/tenzer22a/tenzer22a.pdf",
   },
   {
     title: "Testing Independence under Biased-Sampling",
     authors: "Y. Tenzer, M. Mandel, O. Zuk",
     venue: "Journal of the American Statistical Association",
     year: 2022,
+    url: "https://arxiv.org/abs/1912.05769",
   },
   {
     title: "Beyond Trees: Classification with Sparse Pairwise Dependencies",
     authors: "Y. Tenzer, A. Moscovich, C. Spiegelman, B. Nadler",
     venue: "Journal of Machine Learning",
     year: 2020,
+    url: "https://arxiv.org/abs/1806.01993",
   },
   {
     title:
@@ -43,6 +57,7 @@ const publications: Publication[] = [
     venue:
       "International Conference on Artificial Intelligence and Statistics (AISTATS)",
     year: 2016,
+    url: "https://proceedings.mlr.press/v51/tenzer16.html",
   },
   {
     title: "Constraints Based Convex Belief Propagation",
@@ -63,6 +78,7 @@ const publications: Publication[] = [
     venue:
       "International Conference on Uncertainty in Artificial Intelligence (UAI)",
     year: 2014,
+    url: "https://www.auai.org/uai2014/proceedings/individuals/80.pdf",
   },
   {
     title: "Speedy Model Selection (SMS) for Copula Models",
@@ -70,6 +86,7 @@ const publications: Publication[] = [
     venue:
       "International Conference on Uncertainty in Artificial Intelligence (UAI)",
     year: 2013,
+    url: "https://arxiv.org/abs/1309.6867",
   },
   {
     title:
@@ -77,6 +94,7 @@ const publications: Publication[] = [
     authors: "Y. Tenzer, O. Barkan, A. Averbuch, S. Dekel",
     venue: "Mathematical Models for Curves and Surfaces (MMCS)",
     year: 2012,
+    url: "https://link.springer.com/chapter/10.1007/978-3-642-54382-1_2",
   },
 ];
 
@@ -86,11 +104,13 @@ const preprints: Preprint[] = [
       "Valid Best-Model Identification for LLM Evaluation via Low-Rank Factorization",
     authors: "E. Tolochinsky, Y. Tenzer, Y. Romano",
     year: 2026,
+    url: "https://arxiv.org/abs/2605.10405",
   },
   {
     title: "On the Monotonicity of the Copula Entropy",
     authors: "Y. Tenzer, G. Elidan",
     year: 2016,
+    url: "https://arxiv.org/abs/1611.06714",
   },
 ];
 
@@ -113,7 +133,28 @@ export default function Research() {
           {sorted.map((pub) => (
             <div key={pub.title} className="space-y-0.5">
               <h3 className="font-medium text-gray-900 leading-snug">
-                {pub.title}
+                {pub.url ? (
+                  <a
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky-400 hover:text-sky-500"
+                  >
+                    {pub.title}
+                  </a>
+                ) : (
+                  pub.title
+                )}
+                {pub.codeUrl && (
+                  <a
+                    href={pub.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky-400 hover:text-sky-500 ml-3"
+                  >
+                    (code)
+                  </a>
+                )}
               </h3>
               <p className="text-sm text-gray-600">{pub.authors}</p>
               <p className="text-sm text-gray-500 italic">
@@ -132,7 +173,18 @@ export default function Research() {
           {preprints.map((p) => (
             <div key={p.title} className="space-y-0.5">
               <h3 className="font-medium text-gray-900 leading-snug">
-                {p.title}
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky-400 hover:text-sky-500"
+                  >
+                    {p.title}
+                  </a>
+                ) : (
+                  p.title
+                )}
               </h3>
               <p className="text-sm text-gray-600">{p.authors}</p>
               {p.year && (
